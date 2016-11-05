@@ -1,7 +1,3 @@
-require 'graphql'
-require_relative './types/episode'
-require_relative '../models/episode'
-
 QueryType = GraphQL::ObjectType.define do
   name "Query"
   description "The query root of this schema"

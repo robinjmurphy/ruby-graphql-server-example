@@ -2,8 +2,14 @@
 
 require 'sinatra'
 require 'json'
+require 'graphql'
 
+require_relative './lib/types/episode'
+require_relative './lib/types/show'
 require_relative './lib/schema'
+require_relative './lib/db'
+require_relative './models/show'
+require_relative './models/episode'
 
 # This server implements the suggested HTTP protocol
 # as described in the GraphQL docs:

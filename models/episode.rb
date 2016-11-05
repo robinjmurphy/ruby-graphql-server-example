@@ -1,3 +1,3 @@
-require_relative '../lib/db'
-
-class Episode < Sequel::Model; end
+class Episode < Sequel::Model
+  many_to_one :show
+end
