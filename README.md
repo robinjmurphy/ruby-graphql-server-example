@@ -19,13 +19,13 @@ bundle install
 Create your local database:
 
 ```
-rake setup_db
+rake db:setup
 ```
 
 Add some seed data:
 
 ```
-rake seed_db
+rake db:seed
 ```
 
 Start the server:
