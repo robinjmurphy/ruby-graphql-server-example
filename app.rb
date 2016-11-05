@@ -3,6 +3,8 @@
 require 'sinatra'
 require 'json'
 
+require_relative './lib/schema'
+
 def current_time
   Time.now.iso8601
 end
@@ -11,8 +13,10 @@ before do
   content_type :json
 end
 
-get '/' do
-  {
-    timestamp: current_time
-  }.to_json
+post '/graphql' do
+  params = JSON.parse(request.body.read)
+  query = params['query']
+  variables = params['variables']
+  result = Schema.execute(query, variables: variables)
+  result.to_json
 end
