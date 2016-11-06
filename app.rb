@@ -6,10 +6,13 @@ require 'graphql'
 
 require_relative './lib/types/episode'
 require_relative './lib/types/show'
+require_relative './lib/types/season'
 require_relative './lib/schema'
 require_relative './lib/db'
+require_relative './models/fields/episodes'
 require_relative './models/show'
 require_relative './models/episode'
+require_relative './models/season'
 
 # This server implements the suggested HTTP protocol
 # as described in the GraphQL docs:
@@ -40,4 +43,3 @@ post '/graphql' do
   result = Schema.execute(query, variables: variables)
   result.to_json
 end
-

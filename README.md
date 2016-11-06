@@ -19,19 +19,19 @@ bundle install
 Create your local database:
 
 ```
-rake db:setup
+bundle exec rake db:setup
 ```
 
 Add some seed data:
 
 ```
-rake db:seed
+bundle exec rake db:seed
 ```
 
 Start the server:
 
 ```
-rake start
+bundle exec rake start
 ```
 
 ## Development
@@ -39,5 +39,5 @@ rake start
 To use [Shotgun](https://github.com/rtomayko/shotgun) to reload the server in development:
 
 ```
-rake dev
+bundle exec rake dev
 ```
