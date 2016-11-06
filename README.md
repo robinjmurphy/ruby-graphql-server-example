@@ -368,9 +368,7 @@ And return its season and show:
 
 ## GraphiQL
 
-The server includes the [GraphiQL](https://github.com/graphql/graphiql) tool.
-
-You can use it to explore the API in your browser by visiting [http://localhost:4567/](http://localhost:4567/).
+The server includes the [GraphiQL](https://github.com/graphql/graphiql) tool. You can use it to explore the API in your browser by visiting [http://localhost:4567/](http://localhost:4567/).
 
 The GraphiQL installation follows the [official example](https://github.com/graphql/graphiql/tree/master/example).
 
