@@ -46,6 +46,8 @@ Start the server:
 bundle exec ruby app.rb
 ```
 
+This will start a server running with a GraphQL endpoint at [http://localhost:4567/graphql](http://localhost:4567/graphql) and the [GraphiQL tool](#graphiql) at [http://localhost:4567](http://localhost:4567).
+
 ## Data model
 
 The data model represents a simple video-on-demand service that displays shows, seasons and episodes.
@@ -370,7 +372,7 @@ And return its season and show:
 
 The server includes the [GraphiQL](https://github.com/graphql/graphiql) tool.
 
-You can use it to explore the API in your browser by visiting [http://localhost:4567/](http://localhost:4567/).
+You can use it to explore the API in your browser by visiting [http://localhost:4567/](http://localhost:4567).
 
 The GraphiQL installation follows the [official example](https://github.com/graphql/graphiql/tree/master/example).
 
