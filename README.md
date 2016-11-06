@@ -78,7 +78,7 @@ type Episode {
 
 ## Example queries
 
-Let's create a simple GraphQL query in a `query.gql` file that returns all of the shows:
+Let's create a simple GraphQL query in a `query.graphql` file that returns all of the shows:
 
 ```graphql
 {
@@ -94,7 +94,7 @@ We can run that query against the server using `curl`:
 ```bash
 curl -X POST http://localhost:4567/graphql \
   -H 'Content-Type: application/graphql' \
-  -d @query.gql | jq .
+  -d @query.graphql | jq .
 ```
 
 > Here we're using [`jq`](https://stedolan.github.io/jq/) (`brew install jq`) to get a pretty-printed JSON output
@@ -168,12 +168,44 @@ Which returns:
       {
         "id": "b0071b63",
         "title": "The Apprentice",
-        "episodes": []
+        "episodes": [
+          {
+            "id": "b07ynzyc",
+            "number": 1,
+            "title": "Collectables"
+          },
+          {
+            "id": "b07zfh1b",
+            "number": 2,
+            "title": "Advertising - Jeans"
+          },
+          {
+            "id": "b0806vqc",
+            "number": 3,
+            "title": "Corporate Candy"
+          }
+        ]
       },
       {
         "id": "b062r9t5",
         "title": "People Just Do Nothing",
-        "episodes": []
+        "episodes": [
+          {
+            "id": "p043m903",
+            "number": 1,
+            "title": "Dubplate"
+          },
+          {
+            "id": "b07tl80w",
+            "number": 2,
+            "title": "Record Deal"
+          },
+          {
+            "id": "p045280q",
+            "number": 3,
+            "title": "Court Case"
+          }
+        ]
       }
     ]
   }
@@ -214,12 +246,24 @@ We can use arguments on the `episodes` field to return only the latest episode i
       {
         "id": "b0071b63",
         "title": "The Apprentice",
-        "episodes": []
+        "episodes": [
+          {
+            "id": "b0806vqc",
+            "number": 3,
+            "title": "Corporate Candy"
+          }
+        ]
       },
       {
         "id": "b062r9t5",
         "title": "People Just Do Nothing",
-        "episodes": []
+        "episodes": [
+          {
+            "id": "p045280q",
+            "number": 3,
+            "title": "Court Case"
+          }
+        ]
       }
     ]
   }
@@ -308,7 +352,7 @@ We can also a retrieve an episode by its ID:
 
 ```graphql
 {
-  episode(id: "b07v324h") {
+  episode(id: "p043m903") {
     id
     number
     title
@@ -320,9 +364,9 @@ We can also a retrieve an episode by its ID:
 {
   "data": {
     "episode": {
-      "id": "b07v324h",
-      "number": 3,
-      "title": "Bread Week"
+      "id": "p043m903",
+      "number": 1,
+      "title": "Dubplate"
     }
   }
 }
@@ -332,7 +376,7 @@ And return its season and show:
 
 ```graphql
 {
-  episode(id: "b07v324h") {
+  episode(id: "p043m903") {
     id
     number
     title
@@ -352,16 +396,16 @@ And return its season and show:
 {
   "data": {
     "episode": {
-      "id": "b07v324h",
-      "number": 3,
-      "title": "Bread Week",
+      "id": "p043m903",
+      "number": 1,
+      "title": "Dubplate",
       "season": {
-        "id": "b07r2pr0",
-        "title": "Series 7"
+        "id": "p043m8g0",
+        "title": "Series 3"
       },
       "show": {
-        "id": "b013pqnm",
-        "title": "The Great British Bake-Off"
+        "id": "b062r9t5",
+        "title": "People Just Do Nothing"
       }
     }
   }
