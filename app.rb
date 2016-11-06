@@ -23,6 +23,11 @@ before do
   content_type :json
 end
 
+get '/' do
+  content_type :html
+  erb :graphiql
+end
+
 get '/graphql' do
   query = params['query']
   variables = params['variables']

@@ -11,6 +11,7 @@ This project uses [Sinatra](http://www.sinatrarb.com/), [Sequel](http://sequel.j
 * [Usage](#usage)
 * [Data model](#data-model)
 * [Example queries](#example-queries)
+* [GraphiQL](#graphiql)
 * [Development](#development)
 
 ## Requirements
@@ -364,6 +365,12 @@ And return its season and show:
   }
 }
 ```
+
+## GraphiQL
+
+The server includes the [GraphiQL](https://github.com/graphql/graphiql) tool which is mounted at `/`.
+
+You can use it to explore the API in your browser by visiting http://127.0.0.1:4567/.
 
 ## Development
 
