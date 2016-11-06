@@ -3,6 +3,7 @@ ShowType = GraphQL::ObjectType.define do
   description "A show"
   field :id, !types.ID
   field :title, !types.String
+  field :seasons, !types[SeasonType]
   field :episodes, !types[EpisodeType] do
     argument :sortDirection, types.String
     argument :limit, types.Int
