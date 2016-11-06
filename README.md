@@ -94,7 +94,7 @@ curl -X POST http://localhost:4567/graphql \
   -d @query.gql | jq .
 ```
 
-> Here I'm using [`jq`](https://stedolan.github.io/jq/) (`brew install jq`) to get a pretty-printed JSON output
+> Here we're using [`jq`](https://stedolan.github.io/jq/) (`brew install jq`) to get a pretty-printed JSON output
 
 The output of the `curl` command will look like:
 
