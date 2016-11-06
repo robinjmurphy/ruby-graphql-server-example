@@ -44,3 +44,20 @@ post '/graphql' do
   result = Schema.execute(query, variables: variables)
   result.to_json
 end
+
+def respond_with_error(status_code, message)
+  status status_code
+  { error: { message: message, status: status } }.to_json
+end
+
+not_found do
+  respond_with_error(404, 'Not Found')
+end
+
+error do
+  respond_with_error(500, env['sinatra.error'].message)
+end
+
+error ArgumentError do
+  respond_with_error(400, env['sinatra.error'].message)
+end
