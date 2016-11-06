@@ -2,6 +2,10 @@
 
 > An example GraphQL server implementation in Ruby
 
+This project uses [Sinatra](http://www.sinatrarb.com/), [Sequel](http://sequel.jeremyevans.net/) and the [`graphql-ruby`](https://github.com/rmosolgo/graphql-ruby) gem to create a Postgres-backed GraphQL server in Ruby. It implements the HTTP protocol outlined in the [GraphQL HTTP best practices](http://graphql.org/learn/serving-over-http/).
+
+## Contents
+
 * [Requirements](#requirements)
 * [Installation](#installation)
 * [Usage](#usage)
@@ -131,6 +135,46 @@ We can then modify the query to return the nested episodes in each show:
 }
 ```
 
+```json
+{
+  "data": {
+    "shows": [
+      {
+        "id": "b013pqnm",
+        "title": "The Great British Bake-Off",
+        "episodes": [
+          {
+            "id": "b07r246c",
+            "number": 1,
+            "title": "Cake Week"
+          },
+          {
+            "id": "b07tj10j",
+            "number": 2,
+            "title": "Biscuit Week"
+          },
+          {
+            "id": "b07v324h",
+            "number": 3,
+            "title": "Bread Week"
+          }
+        ]
+      },
+      {
+        "id": "b0071b63",
+        "title": "The Apprentice",
+        "episodes": []
+      },
+      {
+        "id": "b062r9t5",
+        "title": "People Just Do Nothing",
+        "episodes": []
+      }
+    ]
+  }
+}
+```
+
 We can use arguments on the `episodes` field to return only the latest episode of each show:
 
 ```graphql
@@ -147,6 +191,36 @@ We can use arguments on the `episodes` field to return only the latest episode o
 }
 ```
 
+```json
+{
+  "data": {
+    "shows": [
+      {
+        "id": "b013pqnm",
+        "title": "The Great British Bake-Off",
+        "episodes": [
+          {
+            "id": "b07v324h",
+            "number": 3,
+            "title": "Bread Week"
+          }
+        ]
+      },
+      {
+        "id": "b0071b63",
+        "title": "The Apprentice",
+        "episodes": []
+      },
+      {
+        "id": "b062r9t5",
+        "title": "People Just Do Nothing",
+        "episodes": []
+      }
+    ]
+  }
+}
+```
+
 We can query for a particular show:
 
 ```graphql
@@ -154,6 +228,17 @@ We can query for a particular show:
   show(id: "b013pqnm") {
     id
     title
+  }
+}
+```
+
+```json
+{
+  "data": {
+    "show": {
+      "id": "b013pqnm",
+      "title": "The Great British Bake-Off"
+    }
   }
 }
 ```
@@ -179,6 +264,41 @@ And then retrieve its entire hierarchy, including seasons and episodes:
 }
 ```
 
+```json
+{
+  "data": {
+    "show": {
+      "id": "b013pqnm",
+      "title": "The Great British Bake-Off",
+      "seasons": [
+        {
+          "id": "b07r2pr0",
+          "title": "Series 7",
+          "number": 7,
+          "episodes": [
+            {
+              "id": "b07r246c",
+              "title": "Cake Week",
+              "number": 1
+            },
+            {
+              "id": "b07tj10j",
+              "title": "Biscuit Week",
+              "number": 2
+            },
+            {
+              "id": "b07v324h",
+              "title": "Bread Week",
+              "number": 3
+            }
+          ]
+        }
+      ]
+    }
+  }
+}
+```
+
 We can also a retrieve an episode by its ID:
 
 ```graphql
@@ -187,6 +307,18 @@ We can also a retrieve an episode by its ID:
     id
     number
     title
+  }
+}
+```
+
+```json
+{
+  "data": {
+    "episode": {
+      "id": "b07v324h",
+      "number": 3,
+      "title": "Bread Week"
+    }
   }
 }
 ```
@@ -206,6 +338,26 @@ And return its season and show:
     show {
       id
       title
+    }
+  }
+}
+```
+
+```json
+{
+  "data": {
+    "episode": {
+      "id": "b07v324h",
+      "number": 3,
+      "title": "Bread Week",
+      "season": {
+        "id": "b07r2pr0",
+        "title": "Series 7"
+      },
+      "show": {
+        "id": "b013pqnm",
+        "title": "The Great British Bake-Off"
+      }
     }
   }
 }
