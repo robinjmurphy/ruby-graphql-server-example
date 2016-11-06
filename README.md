@@ -75,7 +75,7 @@ type Episode {
 
 ## Example queries
 
-Let's create a simple GraphQL query in a `query.gql` file:
+Let's create a simple GraphQL query in a `query.gql` file that returns all of the shows:
 
 ```graphql
 {
@@ -96,7 +96,7 @@ curl -X POST http://localhost:4567/graphql \
 
 > Here I'm using `jq` (`brew instal jq`) to get a pretty-printed JSON output
 
-The output of running the `curl` command will look something like:
+The output of the `curl` command will look like:
 
 ```json
 {
@@ -134,6 +134,8 @@ We can then modify the query to return the nested episodes in each show:
   }
 }
 ```
+
+Which returns:
 
 ```json
 {
@@ -175,7 +177,7 @@ We can then modify the query to return the nested episodes in each show:
 }
 ```
 
-We can use arguments on the `episodes` field to return only the latest episode of each show:
+We can use arguments on the `episodes` field to return only the latest episode in each show:
 
 ```graphql
 {
@@ -323,7 +325,7 @@ We can also a retrieve an episode by its ID:
 }
 ```
 
-And return its season and show:
+And return the season and show it's part of:
 
 ```graphql
 {
