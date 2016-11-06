@@ -429,3 +429,5 @@ To use [Shotgun](https://github.com/rtomayko/shotgun) to reload the server in de
 ```
 bundle exec shotgun
 ```
+
+All SQL queries are logged by default in development. This is disabled when the `RACK_ENV` environment variable is missing or set to `production`.
