@@ -223,7 +223,7 @@ We can use arguments on the `episodes` field to return only the latest episode i
   shows {
     id
     title
-    episodes(limit: 1, sortDirection: "desc") {
+    episodes(limit: 1, sortDirection: DESC) {
       id
       number
       title
