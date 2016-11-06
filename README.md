@@ -325,7 +325,7 @@ We can also a retrieve an episode by its ID:
 }
 ```
 
-And return the season and show it's part of:
+And return its season and show:
 
 ```graphql
 {
