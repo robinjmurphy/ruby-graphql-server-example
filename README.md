@@ -86,9 +86,9 @@ Let's create a simple GraphQL query in a `query.gql` file that returns all of th
 }
 ```
 
-You can run that query against the server using `curl`:
+We can run that query against the server using `curl`:
 
-```graphql
+```bash
 curl -X POST http://localhost:4567/graphql \
   -H 'Content-Type: application/graphql' \
   -d @query.gql | jq .
