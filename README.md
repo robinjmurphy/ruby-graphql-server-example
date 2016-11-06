@@ -1,10 +1,12 @@
 # ruby-graphql-server-example
 
+[![Heroku deployed](https://img.shields.io/badge/Heroku-Deployed-8363A8.svg)](https://ruby-graphql-server-example.herokuapp.com)
+
 > An example [GraphQL](http://graphql.org/) server implementation in Ruby
 
 This project uses [Sinatra](http://www.sinatrarb.com/), [Sequel](http://sequel.jeremyevans.net/) and the [`graphql-ruby`](https://github.com/rmosolgo/graphql-ruby) gem to create a [Postgres](https://www.postgresql.org)-backed [GraphQL](http://graphql.org/) server in Ruby. It implements the HTTP protocol outlined in the [GraphQL HTTP best practices](http://graphql.org/learn/serving-over-http/).
 
-You can try it out on Heroku https://ruby-graphql-server-example.herokuapp.com.
+You can [try it out on Heroku](https://ruby-graphql-server-example.herokuapp.com).
 
 ## Contents
 
