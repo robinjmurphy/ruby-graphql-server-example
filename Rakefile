@@ -3,15 +3,19 @@ db = 'ruby_graphql_server_example'
 task :default => [:start]
 
 namespace :db do
-  desc "Setup the database"
-  task :setup do
+  desc "Create the database"
+  task :create do
     sh "createdb #{db} || true"
-    sh "psql -d #{db} -f sql/schema.sql"
   end
 
-  desc "Add seed data to the database"
-  task :seed => :setup do
-    sh "psql -d #{db} -f sql/seed.sql"
+  desc "Create the database schema"
+  task :migrate => :create do
+    sh "psql -d #{db} -f db/schema.sql"
+  end
+
+  desc "Add the seed data"
+  task :seed do
+    sh "psql -d #{db} -f db/seeds.sql"
   end
 
   desc "Open the psql console"

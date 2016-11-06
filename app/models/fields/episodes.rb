@@ -14,7 +14,7 @@ module Fields
 
     private
     def get_order sort_direction
-      sort_direction == 'desc' ? Sequel.desc(:id) : :id
+      sort_direction == 'desc' ? Sequel.desc(:number) : :number
     end
   end
 end

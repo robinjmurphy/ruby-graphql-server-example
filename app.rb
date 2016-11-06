@@ -1,26 +1,19 @@
 #! /usr/bin/env ruby
 
-require 'sinatra'
-require 'sinatra/sequel'
+require 'bundler'
+
+Bundler.require
+$: << File.expand_path('../', __FILE__)
+
+database_url = ENV['DATABASE_URL'] ||
+  'postgres://localhost/ruby_graphql_server_example'
+
+set :database, database_url
+
 require 'json'
-require 'graphql'
 require 'logger'
-
-set :database, 'postgres://localhost/ruby_graphql_server_example'
-
-require_relative './models/fields/episodes'
-require_relative './models/show'
-require_relative './models/episode'
-require_relative './models/season'
-require_relative './schema/show'
-require_relative './schema/season'
-require_relative './schema/episode'
-require_relative './schema/query'
-require_relative './schema/root'
-
-# This server implements the suggested HTTP protocol
-# as described in the GraphQL docs:
-#   http://graphql.org/learn/serving-over-http/
+require 'app/models'
+require 'app/schema'
 
 configure :development, :staging do
   database.loggers << Logger.new(STDOUT)

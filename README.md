@@ -27,10 +27,10 @@ bundle install
 
 ## Usage
 
-Create your local database:
+Setup a local database:
 
 ```
-bundle exec rake db:setup
+bundle exec rake db:migrate
 ```
 
 Add some seed data:

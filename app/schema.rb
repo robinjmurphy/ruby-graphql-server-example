@@ -1,0 +1,5 @@
+require 'app/schema/episode'
+require 'app/schema/season'
+require 'app/schema/show'
+require 'app/schema/query'
+require 'app/schema/root'
