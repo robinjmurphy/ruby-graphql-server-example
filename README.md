@@ -2,6 +2,13 @@
 
 > An example GraphQL server implementation in Ruby
 
+* [Requirements](#requirements)
+* [Installation](#installation)
+* [Usage](#usage)
+* [Data model](#data-model)
+* [Example queries](#example-queries)
+* [Development](#development)
+
 ## Requirements
 
 * [Ruby](https://www.ruby-lang.org/en/)
