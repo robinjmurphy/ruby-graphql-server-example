@@ -4,6 +4,8 @@
 
 This project uses [Sinatra](http://www.sinatrarb.com/), [Sequel](http://sequel.jeremyevans.net/) and the [`graphql-ruby`](https://github.com/rmosolgo/graphql-ruby) gem to create a [Postgres](https://www.postgresql.org)-backed [GraphQL](http://graphql.org/) server in Ruby. It implements the HTTP protocol outlined in the [GraphQL HTTP best practices](http://graphql.org/learn/serving-over-http/).
 
+You can try it out on Heroku https://ruby-graphql-server-example.herokuapp.com.
+
 ## Contents
 
 * [Requirements](#requirements)
