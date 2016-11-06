@@ -1,3 +1,4 @@
+require 'app/schema/sort_direction'
 require 'app/schema/episode'
 require 'app/schema/season'
 require 'app/schema/show'

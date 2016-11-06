@@ -6,7 +6,7 @@ SeasonType = GraphQL::ObjectType.define do
   field :number, !types.Int
   field :show, ShowType
   field :episodes, !types[EpisodeType] do
-    argument :sortDirection, types.String
+    argument :sortDirection, SortDirectionType
     argument :limit, types.Int
     resolve ->(obj, args, ctx) {
       obj.episodes({
