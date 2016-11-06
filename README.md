@@ -31,7 +31,7 @@ bundle exec rake db:seed
 Start the server:
 
 ```
-bundle exec rake start
+bundle exec ruby app.rb
 ```
 
 ## Development
@@ -39,5 +39,5 @@ bundle exec rake start
 To use [Shotgun](https://github.com/rtomayko/shotgun) to reload the server in development:
 
 ```
-bundle exec rake dev
+bundle exec shotgun
 ```

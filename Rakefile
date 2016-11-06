@@ -2,16 +2,6 @@ db = 'ruby_graphql_server_example'
 
 task :default => [:start]
 
-desc "Start the server"
-task :start do
-  ruby 'app.rb'
-end
-
-desc "Reload the server in development"
-task :dev do
-  sh 'bundle exec shotgun'
-end
-
 namespace :db do
   desc "Setup the database"
   task :setup do
