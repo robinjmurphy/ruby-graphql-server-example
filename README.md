@@ -368,9 +368,9 @@ And return its season and show:
 
 ## GraphiQL
 
-The server includes the [GraphiQL](https://github.com/graphql/graphiql) tool which is mounted at `/`.
+The server includes the [GraphiQL](https://github.com/graphql/graphiql) tool which is mounted at `/`. The code for the GraphiQL tool is taken from the [official example](https://github.com/graphql/graphiql/tree/master/example).
 
-You can use it to explore the API in your browser by visiting http://127.0.0.1:4567/.
+You can use it to explore the API in your browser by visiting http://localhost:4567/.
 
 ## Development
 
