@@ -1,8 +1,8 @@
 # ruby-graphql-server-example
 
-> An example GraphQL server implementation in Ruby
+> An example [GraphQL](graphql.org) server implementation in Ruby
 
-This project uses [Sinatra](http://www.sinatrarb.com/), [Sequel](http://sequel.jeremyevans.net/) and the [`graphql-ruby`](https://github.com/rmosolgo/graphql-ruby) gem to create a Postgres-backed GraphQL server in Ruby. It implements the HTTP protocol outlined in the [GraphQL HTTP best practices](http://graphql.org/learn/serving-over-http/).
+This project uses [Sinatra](http://www.sinatrarb.com/), [Sequel](http://sequel.jeremyevans.net/) and the [`graphql-ruby`](https://github.com/rmosolgo/graphql-ruby) gem to create a [Postgres](https://www.postgresql.org)-backed [GraphQL](graphql.org) server in Ruby. It implements the HTTP protocol outlined in the [GraphQL HTTP best practices](http://graphql.org/learn/serving-over-http/).
 
 ## Contents
 
@@ -94,7 +94,7 @@ curl -X POST http://localhost:4567/graphql \
   -d @query.gql | jq .
 ```
 
-> Here I'm using `jq` (`brew install jq`) to get a pretty-printed JSON output
+> Here I'm using [`jq`](https://stedolan.github.io/jq/) (`brew install jq`) to get a pretty-printed JSON output
 
 The output of the `curl` command will look like:
 
