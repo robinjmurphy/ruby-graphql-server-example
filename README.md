@@ -34,7 +34,35 @@ Start the server:
 bundle exec ruby app.rb
 ```
 
-### Example requests
+## Data model
+
+The data model represents a simple video-on-demand service that displays shows, seasons and episodes.
+
+```graphql
+type Show {
+  id: ID!
+  title: String!
+  seasons: [Season]!
+  episodes: [Episode]!
+}
+
+type Season {
+  id: ID!
+  title: String!
+  number: Int!
+  episodes: [Episode]!
+}
+
+type Episode {
+  id: ID!
+  title: String!
+  number: Int!
+  show: Show!
+  season: Season!
+}
+```
+
+## Example queries
 
 Let's create a simple GraphQL query in a `query.gql` file:
 
@@ -55,9 +83,32 @@ curl -X POST http://localhost:4567/graphql \
   -d @query.gql | jq .
 ```
 
-> I'm using `jq` (`brew instal jq`) to get a pretty-printed JSON output
+> Here I'm using `jq` (`brew instal jq`) to get a pretty-printed JSON output
 
-We can modify the query to return the nested episodes in each show:
+The output of running the `curl` command will look something like:
+
+```json
+{
+  "data": {
+    "shows": [
+      {
+        "id": "b013pqnm",
+        "title": "The Great British Bake-Off"
+      },
+      {
+        "id": "b0071b63",
+        "title": "The Apprentice"
+      },
+      {
+        "id": "b062r9t5",
+        "title": "People Just Do Nothing"
+      }
+    ]
+  }
+}
+```
+
+We can then modify the query to return the nested episodes in each show:
 
 ```graphql
 {
